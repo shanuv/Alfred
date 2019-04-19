@@ -1,0 +1,264 @@
+<html>
+<head></head>
+<body>
+
+<div id="pieChart"></div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+<script src="assets/d3pie.min.js"></script>
+<script>
+var book_data = {
+    "B00XHRW9TI": [
+        {
+            "label": "positive",
+            "value": 8,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 2,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00G97AJMW": [
+        {
+            "label": "positive",
+            "value": 8,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 1,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 1,
+            "color": "#c0c51f"
+        }
+    ],
+    "B005KK41HI": [
+        {
+            "label": "positive",
+            "value": 10,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 0,
+            "color": "#c0c51f"
+        }
+    ],
+    "B0043ZLFXE": [
+        {
+            "label": "positive",
+            "value": 7,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 3,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00FEN6HJ6": [
+        {
+            "label": "positive",
+            "value": 9,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 1,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00GCGGNBQ": [
+        {
+            "label": "positive",
+            "value": 9,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 1,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00DWIAVWY": [
+        {
+            "label": "positive",
+            "value": 4,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 6,
+            "color": "#c0c51f"
+        }
+    ],
+    "B004O3BWF6": [
+        {
+            "label": "positive",
+            "value": 9,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 1,
+            "color": "#c0c51f"
+        }
+    ],
+    "B0053FR9FQ": [
+        {
+            "label": "positive",
+            "value": 3,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 2,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 5,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00424MW42": [
+        {
+            "label": "positive",
+            "value": 4,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 1,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 5,
+            "color": "#c0c51f"
+        }
+    ]
+};
+var data = book_data["B00XHRW9TI"];
+
+	var pie = new d3pie("pieChart", {
+	"header": {
+		"title": {
+			"text": "Sentiments",
+			"fontSize": 22,
+			"font": "verdana"
+		},
+		"subtitle": {
+			"color": "#999999",
+			"fontSize": 10,
+			"font": "verdana"
+		},
+		"titleSubtitlePadding": 12
+	},
+	"footer": {
+		"text": "Sentiment pie",
+		"color": "#999999",
+		"fontSize": 11,
+		"font": "open sans",
+		"location": "bottom-center"
+	},
+	"size": {
+		"canvasHeight": 400,
+		"canvasWidth": 590,
+		"pieOuterRadius": "88%"
+	},
+	"data": {
+		"content": data
+	},
+	"labels": {
+		"outer": {
+			"format": "percentage",
+			"pieDistance": 20
+		},
+		"inner": {
+			"format": "value"
+		},
+		"mainLabel": {
+			"font": "verdana"
+		},
+		"percentage": {
+			"color": "#7a3737",
+			"font": "verdana",
+			"decimalPlaces": 0
+		},
+		"value": {
+			"color": "#f9ecec",
+			"font": "verdana"
+		},
+		"lines": {
+			"enabled": true,
+			"color": "#cccccc"
+		},
+		"truncation": {
+			"enabled": true
+		}
+	},
+	"tooltips": {
+		"enabled": true,
+		"type": "placeholder",
+		"string": "{label}: {value}"
+	},
+	"effects": {
+		"pullOutSegmentOnClick": {
+			"effect": "linear",
+			"speed": 400,
+			"size": 8
+		}
+	},
+	"callbacks": {
+		onClickSegment: function(a) {
+			//alert("Segment clicked! See the console for all data passed to the click handler.");
+			console.log(a);
+		}
+	}
+});
+
+</script>
+
+</body>
+</html>
