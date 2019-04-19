@@ -1,4 +1,3 @@
-var selectedText = "";
 var data = null;
 
 // populate all dropdowns
@@ -31,17 +30,18 @@ d3.json("alfred_data_camera.json", function (err, json) {
 })
 
 $('#select-left').change(function () {
-    selectedText = $(this).find("option:selected").text();
-    var compare_comments = get_comments();
+    var selectedText = $(this).find("option:selected").text();
+    var compare_comments = get_comments(selectedText);
     draw_comments("left", compare_comments)
 });
 
 $('#select-right').change(function () {
-    selectedText = $(this).find("option:selected").text();
-    var compare_comments = get_comments();
+    var selectedText = $(this).find("option:selected").text();
+    var compare_comments = get_comments(selectedText);
     draw_comments("right", compare_comments)
 });
 
+// draw comments 
 function draw_comments(dropbar, compare_comments) {
 
     for (var i in compare_comments) {
@@ -69,7 +69,8 @@ function draw_comments(dropbar, compare_comments) {
     }
 }
 
-function get_comments() {
+// get comments based on dropdown filter
+function get_comments(selectedText) {
     var compare_comments = []
     for (var i in data) {
         if (data[i].product_name == selectedText) {
