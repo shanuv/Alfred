@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: BentonSans, 'Open Sans', sans-serif;
+}
+
+.compareMainDiv{
+    height: 95%;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.compareTopDiv{
+    height: 10%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+}
+
+.compareDDDiv{
+    height:50px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+}
+
+.compareParentDiv{
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.compareLeftDiv{
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    background-color: blue;
+}
+
+.compareRightDiv{
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    background-color: green;
+}
+
+.compareLeftBodyDiv{
+    align-items: center;
+    background-color: blue;
+    overflow: scroll;
+    height:100%
+}
+
+.compareRightBodyDiv{
+    align-items: center;
+    background-color: blue;
+    overflow: scroll;
+    height:100%;
+}
+
+.dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover{
+    background-color: blue !important;
+}
+
+.btn.btn-primary{
+    border-radius: 5px;
+}
