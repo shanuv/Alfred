@@ -1,57 +1,189 @@
 {
-    "B000JFO1TM": {
-        "positive": 7,
-        "negative": 1,
-        "neutral": 2
-    },
-    "B007W0YSG8": {
-        "positive": 7,
-        "negative": 2,
-        "neutral": 1
-    },
-    "B00004Y693": {
-        "positive": 8,
-        "negative": 0,
-        "neutral": 2
-    },
-    "B0045ZS0XK": {
-        "positive": 7,
-        "negative": 0,
-        "neutral": 3
-    },
-    "B00DE8IL3I": {
-        "positive": 6,
-        "negative": 1,
-        "neutral": 3
-    },
-    "B009PCQ1DE": {
-        "positive": 8,
-        "negative": 1,
-        "neutral": 1
-    },
-    "B00B0YE7LS": {
-        "positive": 6,
-        "negative": 1,
-        "neutral": 3
-    },
-    "B002UZAXX2": {
-        "positive": 7,
-        "negative": 0,
-        "neutral": 3
-    },
-    "B00A4HPKJU": {
-        "positive": 6,
-        "negative": 0,
-        "neutral": 4
-    },
-    "B00LT7CG64": {
-        "positive": 4,
-        "negative": 0,
-        "neutral": 2
-    },
-    "B00LT7CBPU": {
-        "positive": 2,
-        "negative": 2,
-        "neutral": 0
-    }
+    "B000JFO1TM": [
+        {
+            "label": "positive",
+            "value": 7,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 1,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 2,
+            "color": "#c0c51f"
+        }
+    ],
+    "B007W0YSG8": [
+        {
+            "label": "positive",
+            "value": 7,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 2,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 1,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00004Y693": [
+        {
+            "label": "positive",
+            "value": 8,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 2,
+            "color": "#c0c51f"
+        }
+    ],
+    "B0045ZS0XK": [
+        {
+            "label": "positive",
+            "value": 7,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 3,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00DE8IL3I": [
+        {
+            "label": "positive",
+            "value": 6,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 1,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 3,
+            "color": "#c0c51f"
+        }
+    ],
+    "B009PCQ1DE": [
+        {
+            "label": "positive",
+            "value": 8,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 1,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 1,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00B0YE7LS": [
+        {
+            "label": "positive",
+            "value": 6,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 1,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 3,
+            "color": "#c0c51f"
+        }
+    ],
+    "B002UZAXX2": [
+        {
+            "label": "positive",
+            "value": 7,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 3,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00A4HPKJU": [
+        {
+            "label": "positive",
+            "value": 6,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 4,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00LT7CG64": [
+        {
+            "label": "positive",
+            "value": 4,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 0,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 2,
+            "color": "#c0c51f"
+        }
+    ],
+    "B00LT7CBPU": [
+        {
+            "label": "positive",
+            "value": 2,
+            "color": "#387e45"
+        },
+        {
+            "label": "negative",
+            "value": 2,
+            "color": "#7e3838"
+        },
+        {
+            "label": "neutral",
+            "value": 0,
+            "color": "#c0c51f"
+        }
+    ]
 }
