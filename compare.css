@@ -20,7 +20,7 @@ body {
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .compareDDDiv{
@@ -29,7 +29,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .compareParentDiv{
@@ -45,32 +45,32 @@ body {
     height: 100%;
     width: 50%;
     align-items: center;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .compareRightDiv{
     height: 100%;
     width: 50%;
     align-items: center;
-    background-color: green;
+    /* background-color: green; */
 }
 
 .compareLeftBodyDiv{
     align-items: center;
-    background-color: blue;
+    /* background-color: blue; */
     overflow: scroll;
     height:100%
 }
 
 .compareRightBodyDiv{
     align-items: center;
-    background-color: blue;
+    /* background-color: blue; */
     overflow: scroll;
     height:100%;
 }
 
 .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover{
-    background-color: blue !important;
+    background-color: #007BFF !important;
 }
 
 .btn.btn-primary{
@@ -95,4 +95,18 @@ body {
     font-weight: 700;
     text-align: left;
     margin: 0 10px 10px 0px;
+}
+
+.fa-arrow-up{
+    color:green
+}
+
+
+.fa-arrow-down{
+    color:red
+}
+
+
+.fa-arrow-right{
+    color:#FFC107
 }
