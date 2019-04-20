@@ -1,0 +1,611 @@
+<html>
+<meta charset="utf-8">
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!-- <script src="interaction_log.js"></script> -->
+
+	<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+
+	<link rel="stylesheet" href="product.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Alfred</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div id="product_main_div" class="productMainDiv">
+		<div id="product_top_div" class="productTopDiv">
+			<div id="product_top_dd_div" class="productDDDiv">
+				<h1>Product View</h1>
+			</div>
+		</div>
+		<div id="product_parent_div" class="productParentDiv">
+			<div id="product_left_div" class="productLeftDiv">
+				<div id="product_left_dd_div" class="productDDDiv">
+					<h1>Product List</h1>
+				</div>
+				<div id="product_left_body_div" class="productLeftBodyDiv"></div>
+			</div>
+			<div id="product_right_div" class="productRightDiv">
+				<div id="product_right_dd_div" class="productDDDiv">
+					<h1>Summary View</h1>
+				</div>
+				<div id="product_right_body_div" class="productRightBodyDiv">
+					
+					<div id="pie_body" class="pieBodyDiv">
+						<div id="pieChart"></div>
+
+						<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+						<script src="assets/d3pie.min.js"></script>
+						<script>
+						var book_data = {
+						    "B00XHRW9TI": [
+						        {
+						            "label": "positive",
+						            "value": 8,
+						            "color": "#54a24b"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 3,
+						            "color": "#e45756"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 2,
+						            "color": "#eeca3b"
+						        }
+						    ],
+						    "B00G97AJMW": [
+						        {
+						            "label": "positive",
+						            "value": 8,
+						            "color": "#387e45"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 1,
+						            "color": "#7e3838"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 1,
+						            "color": "#c0c51f"
+						        }
+						    ],
+						    "B005KK41HI": [
+						        {
+						            "label": "positive",
+						            "value": 10,
+						            "color": "#387e45"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 0,
+						            "color": "#7e3838"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 0,
+						            "color": "#c0c51f"
+						        }
+						    ],
+						    "B0043ZLFXE": [
+						        {
+						            "label": "positive",
+						            "value": 7,
+						            "color": "#387e45"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 0,
+						            "color": "#7e3838"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 3,
+						            "color": "#c0c51f"
+						        }
+						    ],
+						    "B00FEN6HJ6": [
+						        {
+						            "label": "positive",
+						            "value": 9,
+						            "color": "#387e45"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 0,
+						            "color": "#7e3838"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 1,
+						            "color": "#c0c51f"
+						        }
+						    ],
+						    "B00GCGGNBQ": [
+						        {
+						            "label": "positive",
+						            "value": 9,
+						            "color": "#387e45"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 0,
+						            "color": "#7e3838"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 1,
+						            "color": "#c0c51f"
+						        }
+						    ],
+						    "B00DWIAVWY": [
+						        {
+						            "label": "positive",
+						            "value": 4,
+						            "color": "#387e45"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 0,
+						            "color": "#7e3838"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 6,
+						            "color": "#c0c51f"
+						        }
+						    ],
+						    "B004O3BWF6": [
+						        {
+						            "label": "positive",
+						            "value": 9,
+						            "color": "#387e45"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 0,
+						            "color": "#7e3838"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 1,
+						            "color": "#c0c51f"
+						        }
+						    ],
+						    "B0053FR9FQ": [
+						        {
+						            "label": "positive",
+						            "value": 3,
+						            "color": "#387e45"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 2,
+						            "color": "#7e3838"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 5,
+						            "color": "#c0c51f"
+						        }
+						    ],
+						    "B00424MW42": [
+						        {
+						            "label": "positive",
+						            "value": 4,
+						            "color": "#387e45"
+						        },
+						        {
+						            "label": "negative",
+						            "value": 1,
+						            "color": "#7e3838"
+						        },
+						        {
+						            "label": "neutral",
+						            "value": 5,
+						            "color": "#c0c51f"
+						        }
+						    ]
+						};
+
+						var data = book_data["B00XHRW9TI"];
+
+							var pie = new d3pie("pieChart", {
+							"header": {
+								"title": {
+									"text": "Sentiments",
+									"fontSize": 22,
+									"font": "verdana"
+								},
+								"subtitle": {
+									"color": "#999999",
+									"fontSize": 10,
+									"font": "verdana"
+								},
+								"titleSubtitlePadding": 12
+							},
+							"footer": {
+								"text": "Sentiment pie",
+								"color": "#999999",
+								"fontSize": 11,
+								"font": "open sans",
+								"location": "bottom-center"
+							},
+							"size": {
+								"canvasHeight": 400,
+								"canvasWidth": 590,
+								"pieOuterRadius": "88%"
+							},
+							"data": {
+								"content": data
+							},
+							"labels": {
+								"outer": {
+									"format": "percentage",
+									"pieDistance": 20
+								},
+								"inner": {
+									"format": "value"
+								},
+								"mainLabel": {
+									"font": "verdana"
+								},
+								"percentage": {
+									"color": "#7a3737",
+									"font": "verdana",
+									"decimalPlaces": 0
+								},
+								"value": {
+									"color": "#f9ecec",
+									"font": "verdana"
+								},
+								"lines": {
+									"enabled": true,
+									"color": "#cccccc"
+								},
+								"truncation": {
+									"enabled": true
+								}
+							},
+							"tooltips": {
+								"enabled": true,
+								"type": "placeholder",
+								"string": "{label}: {value}"
+							},
+							"effects": {
+								"pullOutSegmentOnClick": {
+									"effect": "linear",
+									"speed": 400,
+									"size": 8
+								}
+							},
+							"callbacks": {
+								onClickSegment: function(a) {
+									//alert("Segment clicked! See the console for all data passed to the click handler.");
+									console.log(a);
+								}
+							}
+						});
+
+						</script>
+				</div>
+				<div id="bar_body" class="barBodyDiv">
+					<!-- <script src="http://d3js.org/d3.v3.js"></script> -->
+ 					<!-- <script src="bar_script.js"></script> -->
+					<script>
+						
+					var vulgarity_book = {
+					    "B00XHRW9TI": [
+					        {
+					            "bin": "0-25",
+					            "number": 8
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 1
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 0
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 1
+					        }
+					    ],
+					    "B00G97AJMW": [
+					        {
+					            "bin": "0-25",
+					            "number": 4
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 2
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 2
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 2
+					        }
+					    ],
+					    "B005KK41HI": [
+					        {
+					            "bin": "0-25",
+					            "number": 1
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 3
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 4
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 2
+					        }
+					    ],
+					    "B0043ZLFXE": [
+					        {
+					            "bin": "0-25",
+					            "number": 2
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 2
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 2
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 4
+					        }
+					    ],
+					    "B00FEN6HJ6": [
+					        {
+					            "bin": "0-25",
+					            "number": 4
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 3
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 2
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 1
+					        }
+					    ],
+					    "B00GCGGNBQ": [
+					        {
+					            "bin": "0-25",
+					            "number": 3
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 5
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 1
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 1
+					        }
+					    ],
+					    "B00DWIAVWY": [
+					        {
+					            "bin": "0-25",
+					            "number": 7
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 2
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 0
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 1
+					        }
+					    ],
+					    "B004O3BWF6": [
+					        {
+					            "bin": "0-25",
+					            "number": 5
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 2
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 0
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 3
+					        }
+					    ],
+					    "B0053FR9FQ": [
+					        {
+					            "bin": "0-25",
+					            "number": 2
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 2
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 5
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 1
+					        }
+					    ],
+					    "B00424MW42": [
+					        {
+					            "bin": "0-25",
+					            "number": 2
+					        },
+					        {
+					            "bin": "25-50",
+					            "number": 3
+					        },
+					        {
+					            "bin": "50-75",
+					            "number": 3
+					        },
+					        {
+					            "bin": "75-100",
+					            "number": 2
+					        }
+					    ]
+					}
+
+					data = vulgarity_book["B00G97AJMW"];
+
+					var margin = {top: 20, right: 30, bottom: 30, left: 40},
+					    width = 280 - margin.left - margin.right, 
+					    height = 250 - margin.top - margin.bottom;
+
+					var xScale = d3.scaleBand().rangeRound([0, width]);
+
+					var yScale = d3.scaleLinear()
+					    .range([height, 0]);
+
+					var xAxis = d3.axisBottom()
+					    .scale(xScale);
+
+					var yAxis = d3.axisLeft()
+					    .scale(yScale)
+					    .ticks(10, "");
+					    
+					var svg = d3.select("#bar_body")
+					            .append("svg")
+					            .attr("width", width + margin.left + margin.right)
+					            .attr("height", height + margin.top + margin.bottom)
+					            .attr("class", "chart");
+
+					var chart = svg.append("g")
+					            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+					var color = d3.scaleOrdinal() 
+					  .range(["#8cc9cd", "#5fb0c0" , "#3993b0", "#32759b"]);
+
+					// d3.tsv("data.tsv", type, function(error, data) {
+					  console.log(data);
+					  xScale.domain(data.map(function(d) { return d.bin; }));
+					  yScale.domain([0, d3.max(data, function(d){ return d.number; })]);
+					  
+					  chart.selectAll(".bar")
+					        .data(data)
+					        .enter()
+					        .append("rect")
+					        .attr("class", "bar")
+					        .attr("x", function(d) { return xScale(d.bin); })
+					        .attr("y", function(d) { return yScale(d.number); })
+					        .attr("height", function(d) { return height - yScale(d.number); })
+					        .attr("width", xScale.bandwidth())
+					        .style("margin-top", "5px")
+					        .style("fill", function(d,i){
+					          return color(i); //pass i to scale
+					          })
+					        .on("mouseover", function(d,i){
+					          d3.select(this).style("fill", "#888888");
+					        })
+					        .on("mouseout", function(d,i) {
+					          d3.select(this).style("fill", color(i));
+					        })
+					        .on("click", function(d,i){
+					          console.log("bar clicked"+d.bin);
+					          d3.select(this).style("fill", "#000000");
+					        });
+
+					  chart.append("g")
+					    .attr("class", "x axis")
+					    .attr("transform", "translate(0," + height + ")")
+					    .call(xAxis);
+					  
+					  chart.append("g")
+					    .attr("class", "y axis")
+					    .call(yAxis)
+					    .append("text")
+					    .attr("transform", "rotate(-90)")
+					    .attr("y", 6)
+					    .attr("dy", ".71em")
+					    .style("text-anchor", "end")
+					    .text("Number of comments");
+					  
+					// });
+
+					function type(d) {
+					  //d.value = +d.frequency; // form d.value by casting frequency to a number
+					  return d;
+					}
+
+					</script>
+				</div>
+			</div>
+			</div>
+			<div id="product_comment_div" class="productCommentDiv">
+				<div id="product_comment_dd_div" class="productDDDiv">
+					<h1>All Comments</h1>
+				</div>
+				<div id="product_comment_body_div" class="productCommentBodyDiv"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
