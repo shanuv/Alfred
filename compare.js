@@ -23,7 +23,7 @@ function populate_dropdown() {
 }
 
 // read data and call initiator
-d3.json("alfred_data_camera.json", function (err, json) {
+d3.json("alfred_data_camera_newkeywords.json", function (err, json) {
     data = JSON.parse(JSON.stringify(json))
     console.log(data)
     populate_dropdown();
@@ -73,11 +73,11 @@ function draw_comments(dropbar, compare_comments) {
         var sent = "";
 
         if (compare_comments[i].sentiment == "negative")
-            sent = "\"fas fa-arrow-down\"";
+            sent = "\"fas fa-arrow-alt-circle-down fa-lg\"";
         else if (compare_comments[i].sentiment == "positive")
-            sent = "\"fas fa-arrow-up\"";
+            sent = "\"fas fa-arrow-alt-circle-up fa-lg\"";
         else
-            sent = "\"fas fa-arrow-right\"";
+            sent = "\"fas fa-arrow-alt-circle-right fa-lg\"";
         if (selectedText == "" || selectedText == "All" || compare_comments[i].keywords.includes(selectedText)) {
 
             // var divCommentHTML =
@@ -93,27 +93,35 @@ function draw_comments(dropbar, compare_comments) {
             //     '<div style="float:left; padding-left: 5px"><p class="search_enable">' + compare_comments[i].review_body + "\xa0" +
             //     "</p></div>"; 
 
-                var divCommentHTML =
+            var divCommentHTML =
 
                 "<div class=\"comment-body\"" + "\">" +
                 '<div style="float: left;padding-left: 2px;"><span class="sentiment_icon" id="span_id_senti_' + divComment.id + '">' +
                 "<i class=" + sent + "></i>" + "\xa0\xa0" + '</span>' +
-                '<span class="vulgarity_icon" id="span_id_vul_' + divComment.id + '" >' +
-                "<i class=" + "></i>" + compare_comments[i].vulgarity + "\xa0\xa0" + '</span>' +
-                '<span class="star_icon" id="span_id_star_' + divComment.id + '" >'; 
+                '<span class="vulgarity_icon" id="span_id_vul_' + divComment.id + '" >';
 
-                for(var j = 0; j < compare_comments[i].star_rating; j++){
-                    divCommentHTML += "<i class=\"fas fa-star\"" + "style=\"color:#FFC107\"" + "></i>" + "\xa0\xa0" + '</span>'; 
-                }
+            if (compare_comments[i].vulgarity > 0 && compare_comments[i].vulgarity <= 0.25)
+                divCommentHTML += "<i class=\"fas fa-circle fa-lg\"" + "style=\"color:#8CC9CD\"" + "></i>" + "\xa0\xa0" + '</span>';
+            else if (compare_comments[i].vulgarity > 0.25 && compare_comments[i].vulgarity <= 0.50)
+                divCommentHTML += "<i class=\"fas fa-circle fa-lg\"" + "style=\"color:#5FB0C0\"" + "></i>" + "\xa0\xa0" + '</span>';
+            else if (compare_comments[i].vulgarity > 0.5 && compare_comments[i].vulgarity <= 0.75)
+                divCommentHTML += "<i class=\"fas fa-circle fa-lg\"" + "style=\"color:#3993B0\"" + "></i>" + "\xa0\xa0" + '</span>';
+            else if (compare_comments[i].vulgarity > 0.75 && compare_comments[i].vulgarity <= 1.0)
+                divCommentHTML += "<i class=\"fas fa-circle fa-lg\"" + "style=\"color:#32759B\"" + "></i>" + "\xa0\xa0" + '</span>';
 
-                for(var j = 0; j < 5 - compare_comments[i].star_rating; j++){
-                    divCommentHTML += "<i class=\"far fa-star\"" + "></i>" + "\xa0\xa0" + '</span>'; 
-                }
-                
-                //"<i class=" + "\"fas fa-plus-circle fa-lg\"" + "></i>" +
-                divCommentHTML += '</span></div>' + "\xa0\xa0" +
+            divCommentHTML += '<span class="star_icon" id="span_id_star_' + divComment.id + '" >';
+
+            for (var j = 0; j < compare_comments[i].star_rating; j++) {
+                divCommentHTML += "<i class=\"fas fa-star fa-lg\"" + "style=\"color:#FFC107\"" + "></i>" + "\xa0\xa0" + '</span>';
+            }
+
+            for (var j = 0; j < 5 - compare_comments[i].star_rating; j++) {
+                divCommentHTML += "<i class=\"far fa-star fa-lg\"" + "></i>" + "\xa0\xa0" + '</span>';
+            }
+
+            divCommentHTML += '</span></div>' + "\xa0\xa0" +
                 '<div style="float:left; padding-left: 5px"><p class="search_enable">' + compare_comments[i].review_body + "\xa0" +
-                "</p></div>"; 
+                "</p></div>";
 
             divComment.innerHTML = divCommentHTML;
             var element = dropbar == "left" ? document.getElementById("compare_left_body_div") : document.getElementById("compare_right_body_div");

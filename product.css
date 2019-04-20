@@ -20,7 +20,7 @@ body {
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .productDDDiv{
@@ -29,7 +29,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .productParentDiv{
@@ -50,14 +50,14 @@ body {
 
 .productRightDiv{
     height: 100%;
-    width: 35%;
+    width: 25%;
     align-items: center;
     /*background-color: green;*/
 }
 
 .productCommentDiv{
     height: 100%;
-    width: 40%;
+    width: 50%;
     align-items: center;
     /*background-color: green;*/
 }
@@ -65,41 +65,55 @@ body {
 .productLeftBodyDiv{
     align-items: center;
     /*background-color: blue;*/
-    border-style: solid;
-    border-width: 5px;
+    /* border-style: solid; */
+    /* border-width: 5px; */
     overflow: scroll;
     height:100%
 }
 
 .productRightBodyDiv{
     align-items: center;
-    border-style: solid;
-    border-width: 5px;
+    /* border-style: solid; */
+    /* border-width: 5px; */
     /*background-color: blue;*/
     overflow: scroll;
     height:100%;
 }
 
-.productPieDiv{
-    height: 50%;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    background-color: yellow;
-}
-
-.barBodyDiv{
-    height: 100%;
+.pieBodyDiv{
+    display:flex;
+    flex-direction: row;
+    height: 40%;
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    /* background-color: yellow; */
+}
+
+.barBodyDiv{
+    display:flex;
+    flex-direction: row;
+    height: 40%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+.starBodyDiv{
+    display:flex;
+    flex-direction: row;
+    height: 20%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
 }
 
 .productCommentBodyDiv{
     align-items: center;
-    border-style: solid;
-    border-width: 5px;
+    /* border-style: solid; */
+    /* border-width: 5px; */
     /*background-color: blue;*/
     overflow: scroll;
     height:100%;
@@ -111,4 +125,13 @@ body {
 
 .btn.btn-primary{
     border-radius: 5px;
+}
+
+.product_card:hover{
+     outline: solid thick #FFC107;
+     cursor: pointer;
+}
+
+.star_agg_icon:hover{
+    cursor: pointer;
 }

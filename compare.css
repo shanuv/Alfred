@@ -16,7 +16,7 @@ body {
 }
 
 .compareTopDiv{
-    height: 10%;
+    height: 7%;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@ body {
 .compareParentDiv{
     display: flex;
     flex-direction: row;
-    height: 80%;
+    height: 83%;
     width: 100%;
     justify-content: start;
     align-items: center;
@@ -97,16 +97,16 @@ body {
     margin: 0 10px 10px 0px;
 }
 
-.fa-arrow-up{
+.fa-arrow-alt-circle-up{
     color:green
 }
 
 
-.fa-arrow-down{
+.fa-arrow-alt-circle-down{
     color:red
 }
 
 
-.fa-arrow-right{
+.fa-arrow-alt-circle-right{
     color:#FFC107
 }
