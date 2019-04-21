@@ -16,18 +16,20 @@ function populate_comments() {
 
     for (var i in uniqueProducts) {
         var divComCard = document.createElement("div")
-        divComCard.className = "cardDiv"
-        divComCard.id = "cardDiv_" + i
+        divComCard.className = "comcardDiv"
+        divComCard.id = "comcardDiv_" + i
 
         var divComCardHTML =
 
             "<div class=\"card-body\"" + "\">" +
             '<div class="comment_card" style="float: left;margin-bottom: 15px; padding-left:2px"><span id="card_id_' + i + '">' +
-            "<i class=" + "card-text" + "></i>" + uniqueProducts[i] + '</span>' + "</div>";
+            "<input type=\"checkbox\"" + "\">" +
+            "<i class=" + "card-text" + "></i>" + "\xa0\xa0" + uniqueProducts[i] + 
+            '</span>' + "</div>";
 
         //checkbox
-        // var x = document.createElement("INPUT");
-        // x.setAttribute("type", "checkbox");
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "checkbox");
 
         // //append the checkbox
         // var dc = document.getElementById("comcardDiv_"+i);
@@ -36,11 +38,12 @@ function populate_comments() {
 
         divComCard.innerHTML = divComCardHTML;
 
-
-
         var element = document.getElementById("product_comment_body_div");
         element.appendChild(divComCard);
 
+        // var dc = document.getElementById("card_id_" + i);
+        // console.log(dc);
+        // dc.appendChild(x);  
     }
 }
 

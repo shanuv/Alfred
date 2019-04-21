@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: BentonSans, 'Open Sans', sans-serif;
+}
+
+.allMainDiv{
+    height: 95%;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.allTopDiv{
+    display:flex;
+    height: 7%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+}s
+
+.allLeftDiv{
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.compareMainDiv{
+    height: 95%;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.compareTopDiv{
+    height: 7%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+.compareDDDiv{
+    height:50px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+.compareParentDiv{
+    display: flex;
+    flex-direction: row;
+    height: 83%;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.compareLeftDiv{
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.compareRightDiv{
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    /* background-color: green; */
+}
+
+.compareLeftBodyDiv{
+    align-items: center;
+    /* background-color: blue; */
+    overflow: scroll;
+    height:100%
+}
+
+.compareRightBodyDiv{
+    align-items: center;
+    /* background-color: blue; */
+    overflow: scroll;
+    height:100%;
+}
+
+.dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover{
+    background-color: #007BFF !important;
+}
+
+.btn.btn-primary{
+    border-radius: 5px;
+}
+
+.compareCommentDiv{
+    color:#333;
+    margin-left: 40px;
+    margin-right: 30px;
+    font-family: Open Sans,sans-serif;
+
+    Background: #fff;
+    padding: 5px;
+    display: block; overflow: hidden;
+    border-top:2px solid white;
+    border-bottom: 1px solid #e2e2e2;
+
+}
+.comment-author {
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    margin: 0 10px 10px 0px;
+}
+
+.fa-arrow-alt-circle-up{
+    color:#54A24B
+}
+
+
+.fa-arrow-alt-circle-down{
+    color:#E45756
+}
+
+
+.fa-arrow-alt-circle-right{
+    color:#FFC107
+}
