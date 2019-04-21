@@ -50,6 +50,9 @@ function populate_comments_pie(str) {
         myNode.removeChild(myNode.firstChild);
     }
 
+    console.log("in comments pie");
+    console.log(str);
+
     reviews = []
     for (var i in data_comments) {
         if(str === data_comments[i].sentiment){

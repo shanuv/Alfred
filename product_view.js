@@ -4,7 +4,7 @@ product_select = null;
 
 function find_product_id(product_name){
     for(var i in data_main){
-        console.log(data_main[i]);
+        //console.log(data_main[i]);
         if(data_main[i].product_name !== null && data_main[i].product_name.localeCompare(product_name) === 0){
             product_id_selected = data_main[i].product_id
             console.log(product_id_selected);
@@ -14,6 +14,8 @@ function find_product_id(product_name){
 
     //make bar graph again
     make_bar(product_id_selected);
+
+    make_pie(product_id_selected);
 }
 
 // make cards

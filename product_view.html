@@ -96,161 +96,170 @@
 									{
 										"label": "positive",
 										"value": 8,
-										"color": "#387e45"
+										"color": "#54a24b"
 									},
 									{
 										"label": "negative",
 										"value": 1,
-										"color": "#7e3838"
+										"color": "#e45756"
 									},
 									{
 										"label": "neutral",
 										"value": 1,
-										"color": "#c0c51f"
+										"color": "#eeca3b"
 									}
 								],
 								"B005KK41HI": [
 									{
 										"label": "positive",
 										"value": 10,
-										"color": "#387e45"
+										"color": "#54a24b"
 									},
 									{
 										"label": "negative",
 										"value": 0,
-										"color": "#7e3838"
+										"color": "#e45756"
 									},
 									{
 										"label": "neutral",
 										"value": 0,
-										"color": "#c0c51f"
+										"color": "#eeca3b"
 									}
 								],
 								"B0043ZLFXE": [
 									{
 										"label": "positive",
 										"value": 7,
-										"color": "#387e45"
+										"color": "#54a24b"
 									},
 									{
 										"label": "negative",
 										"value": 0,
-										"color": "#7e3838"
+										"color": "#e45756"
 									},
 									{
 										"label": "neutral",
 										"value": 3,
-										"color": "#c0c51f"
+										"color": "#eeca3b"
 									}
 								],
 								"B00FEN6HJ6": [
 									{
 										"label": "positive",
 										"value": 9,
-										"color": "#387e45"
+										"color": "#54a24b"
 									},
 									{
 										"label": "negative",
 										"value": 0,
-										"color": "#7e3838"
+										"color": "#e45756"
 									},
 									{
 										"label": "neutral",
 										"value": 1,
-										"color": "#c0c51f"
+										"color": "#eeca3b"
 									}
 								],
 								"B00GCGGNBQ": [
 									{
 										"label": "positive",
 										"value": 9,
-										"color": "#387e45"
+										"color": "#54a24b"
 									},
 									{
 										"label": "negative",
 										"value": 0,
-										"color": "#7e3838"
+										"color": "#e45756"
 									},
 									{
 										"label": "neutral",
 										"value": 1,
-										"color": "#c0c51f"
+										"color": "#eeca3b"
 									}
 								],
 								"B00DWIAVWY": [
 									{
 										"label": "positive",
 										"value": 4,
-										"color": "#387e45"
+										"color": "#54a24b"
 									},
 									{
 										"label": "negative",
 										"value": 0,
-										"color": "#7e3838"
+										"color": "#e45756"
 									},
 									{
 										"label": "neutral",
 										"value": 6,
-										"color": "#c0c51f"
+										"color": "#eeca3b"
 									}
 								],
 								"B004O3BWF6": [
 									{
 										"label": "positive",
 										"value": 9,
-										"color": "#387e45"
+										"color": "#54a24b"
 									},
 									{
 										"label": "negative",
 										"value": 0,
-										"color": "#7e3838"
+										"color": "#e45756"
 									},
 									{
 										"label": "neutral",
 										"value": 1,
-										"color": "#c0c51f"
+										"color": "#eeca3b"
 									}
 								],
 								"B0053FR9FQ": [
 									{
 										"label": "positive",
 										"value": 3,
-										"color": "#387e45"
+										"color": "#54a24b"
 									},
 									{
 										"label": "negative",
 										"value": 2,
-										"color": "#7e3838"
+										"color": "#e45756"
 									},
 									{
 										"label": "neutral",
 										"value": 5,
-										"color": "#c0c51f"
+										"color": "#eeca3b"
 									}
 								],
 								"B00424MW42": [
 									{
 										"label": "positive",
 										"value": 4,
-										"color": "#387e45"
+										"color": "#54a24b"
 									},
 									{
 										"label": "negative",
 										"value": 1,
-										"color": "#7e3838"
+										"color": "#e45756"
 									},
 									{
 										"label": "neutral",
 										"value": 5,
-										"color": "#c0c51f"
+										"color": "#eeca3b"
 									}
 								]
 							};
 
-							var data = book_data[product_id_selected];
+							//var data = book_data[product_id_selected];
 
-							//function make_pie(product_selected){
-								var pie = new d3pie("pieChart", {
+							var pie;
+
+							function make_pie(product_selected){
+
+								console.log("product selected for pie: "+product_selected);
+
+								datas = book_data[product_selected];
+
+								d3.select("#pieChart > *").remove();
+
+								pie = new d3pie("pieChart", {
 								"header": {
 									"title": {
 										"text": "Sentiments",
@@ -277,7 +286,7 @@
 									"pieOuterRadius": "88%"
 								},
 								"data": {
-									"content": data
+									"content": datas
 								},
 								"labels": {
 									"outer": {
@@ -322,16 +331,16 @@
 								"callbacks": {
 									onClickSegment: function (a) {
 										//alert("Segment clicked! See the console for all data passed to the click handler.");
-										console.log(a["data"].label);
+										//console.log(a["data"].label);
 										populate_comments_pie(a["data"].label)
 									}
 								}
 							});
 
 
-							//}
+							}
 							
-							//make_pie(book_data[product_id_selected]);
+							make_pie(product_id_selected);
 
 						</script>
 					</div>
