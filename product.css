@@ -127,8 +127,17 @@ body {
     border-radius: 5px;
 }
 
+.product_card{
+    background-color: #e0ebeb;
+    border:solid #e0ebeb;
+    border-width: 5px;
+    border-radius: 10px
+}
+
 .product_card:hover{
-     outline: solid thick #FFC107;
+     border: solid #FFC107;
+     border-width: 5px;
+     border-radius: 10px;
      cursor: pointer;
 }
 
