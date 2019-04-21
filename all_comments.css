@@ -15,6 +15,15 @@ body {
     align-items: center;
 }
 
+.allParentDiv{
+    display: flex;
+    flex-direction: row;
+    height: 83%;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
 .allTopDiv{
     display:flex;
     height: 7%;
@@ -29,6 +38,13 @@ body {
     width: 100%;
     align-items: center;
     /* background-color: blue; */
+}
+
+.allLeftBodyDiv{
+    align-items: center;
+    /* background-color: blue; */
+    overflow: scroll;
+    height:100%
 }
 
 .compareMainDiv{
