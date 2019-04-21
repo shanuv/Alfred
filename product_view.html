@@ -23,6 +23,10 @@
 
 	<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
 
+	<script type='text/javascript' > 
+	  var product_id_selected = "B00XHRW9TI"; 
+	</script>
+
 	<link rel="stylesheet" href="product.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -243,9 +247,10 @@
 								]
 							};
 
-							var data = book_data["B00XHRW9TI"];
+							var data = book_data[product_id_selected];
 
-							var pie = new d3pie("pieChart", {
+							//function make_pie(product_selected){
+								var pie = new d3pie("pieChart", {
 								"header": {
 									"title": {
 										"text": "Sentiments",
@@ -317,10 +322,16 @@
 								"callbacks": {
 									onClickSegment: function (a) {
 										//alert("Segment clicked! See the console for all data passed to the click handler.");
-										console.log(a);
+										console.log(a["data"].label);
+										populate_comments_pie(a["data"].label)
 									}
 								}
 							});
+
+
+							//}
+							
+							//make_pie(book_data[product_id_selected]);
 
 						</script>
 					</div>
@@ -512,9 +523,7 @@
 								]
 							}
 
-							data = vulgarity_book["B00G97AJMW"];
-
-							var margin = { top: 20, right: 30, bottom: 30, left: 40 },
+						var margin = { top: 20, right: 30, bottom: 30, left: 40 },
 								width = 300 - margin.left - margin.right,
 								height = 300 - margin.top - margin.bottom;
 
@@ -530,6 +539,13 @@
 								.scale(yScale)
 								.ticks(10, "");
 
+						function make_bar(product_selected){
+							console.log("product selected for bar: "+product_selected);
+							data = vulgarity_book[product_selected];
+
+							//clear the graph
+							d3.select("#bar_body > *").remove();
+
 							var svg = d3.select("#bar_body")
 								.append("svg")
 								.attr("width", width + margin.left + margin.right)
@@ -543,7 +559,7 @@
 								.range(["#8cc9cd", "#5fb0c0", "#3993b0", "#32759b"]);
 
 							// d3.tsv("data.tsv", type, function(error, data) {
-							console.log(data);
+							//console.log(data);
 							xScale.domain(data.map(function (d) { return d.bin; }));
 							yScale.domain([0, d3.max(data, function (d) { return d.number; })]);
 
@@ -570,6 +586,7 @@
 								.on("click", function (d, i) {
 									console.log("bar clicked" + d.bin);
 									d3.select(this).style("fill", "#000000");
+									populate_comments_bar(d.bin);
 								});
 
 							chart.append("g")
@@ -586,6 +603,9 @@
 								.attr("dy", ".71em")
 								.style("text-anchor", "end")
 								.text("Number of comments");
+							}
+
+							make_bar(product_id_selected);
 
 							// });
 
@@ -614,5 +634,5 @@
 </body>
 
 </html>
-
-<script src="product_view.js"></script>
+	<script src="product_view.js"></script>
+	<script src="specific_comments.js"></script>

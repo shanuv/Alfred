@@ -1,4 +1,20 @@
-var data = null;
+var data_main = null;
+product_select = null;
+
+
+function find_product_id(product_name){
+    for(var i in data_main){
+        console.log(data_main[i]);
+        if(data_main[i].product_name !== null && data_main[i].product_name.localeCompare(product_name) === 0){
+            product_id_selected = data_main[i].product_id
+            console.log(product_id_selected);
+            break;
+        }
+    }
+
+    //make bar graph again
+    make_bar(product_id_selected);
+}
 
 // make cards
 function populate_product_cards() {
@@ -8,8 +24,8 @@ function populate_product_cards() {
     }
 
     product_names = []
-    for (var i in data) {
-        product_names.push(data[i].product_name)
+    for (var i in data_main) {
+        product_names.push(data_main[i].product_name)
     }
 
     var uniqueProducts = Array.from(new Set(product_names))
@@ -27,6 +43,18 @@ function populate_product_cards() {
 
         divCard.innerHTML = divCardHTML;
         var element = document.getElementById("product_left_body_div");
+        //console.log(card_clicked);
+
+        //var pc = document.getElementById("product_left_body_div");
+
+        divCard.onclick = function(){
+            var card_clicked = null;
+            card_clicked = document.getElementById(this.id);
+            console.log(card_clicked.textContent);
+            product_select = card_clicked.textContent;
+            find_product_id(product_select);
+            //card_clicked = null;
+        }
         element.appendChild(divCard);
     }
 }
@@ -36,9 +64,9 @@ function populate_product_cards() {
 function populate_stars(product_name) {
     var rating = 0;
     var count = 0;
-    for (var i in data) {
-        if (data[i].product_name == product_name) {
-            rating += data[i].star_rating
+    for (var i in data_main) {
+        if (data_main[i].product_name == product_name) {
+            rating += data_main[i].star_rating
             count += 1
         }
     }
@@ -69,8 +97,8 @@ function populate_stars(product_name) {
 
 // read data and call initiator
 d3.json("alfred_data_camera.json", function (err, json) {
-    data = JSON.parse(JSON.stringify(json))
-    console.log(data)
+    data_main = JSON.parse(JSON.stringify(json))
+    //  console.log(data)
     populate_product_cards();
     product_name = "(3 Pack of Polaroid 300 Film PIF-300) 30 Prints"
     populate_stars(product_name);
