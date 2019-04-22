@@ -59,13 +59,13 @@
 		<div id="product_parent_div" class="productParentDiv">
 			<div id="product_left_div" class="productLeftDiv">
 				<div id="product_left_dd_div" class="productDDDiv">
-					<h1>Product List</h1>
+					<h2>Product List</h2>
 				</div>
 				<div id="product_left_body_div" class="productLeftBodyDiv"></div>
 			</div>
 			<div id="product_right_div" class="productRightDiv">
 				<div id="product_right_dd_div" class="productDDDiv">
-					<h1>Summary View</h1>
+					<h2>Summary View</h2>
 				</div>
 				<div id="product_right_body_div" class="productRightBodyDiv">
 					<div id="pie_body" class="pieBodyDiv">
@@ -332,7 +332,8 @@
 									onClickSegment: function (a) {
 										//alert("Segment clicked! See the console for all data passed to the click handler.");
 										//console.log(a["data"].label);
-										populate_comments_pie(a["data"].label)
+										populate_comments_pie(a["data"].label,product_id_selected);
+										which_comments(a["data"].label,a["data"].value);
 									}
 								}
 							});
@@ -595,7 +596,8 @@
 								.on("click", function (d, i) {
 									console.log("bar clicked" + d.bin);
 									d3.select(this).style("fill", "#000000");
-									populate_comments_bar(d.bin);
+									populate_comments_bar(d.bin,product_id_selected);
+									which_comments(d.bin,d.number)
 								});
 
 							chart.append("g")
@@ -634,7 +636,7 @@
 			</div>
 			<div id="product_comment_div" class="productCommentDiv">
 				<div id="product_comment_dd_div" class="productDDDiv">
-					<h1>All Comments</h1>
+					<h3>All Comments</h3>
 				</div>
 				<div id="product_comment_body_div" class="productCommentBodyDiv"></div>
 			</div>

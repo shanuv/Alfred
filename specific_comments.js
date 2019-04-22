@@ -1,6 +1,54 @@
 var data_comments = null;
 // var card_clicked = null
 // make cards
+
+function which_comments(str,count){
+
+    var all_div = document.getElementById("product_comment_dd_div");
+    var newHTML;
+
+    //if pie
+    if(str == "positive" || str == "negative" || str == "neutral"){
+        console.log("inside which comments");
+
+        if(str == "positive"){
+            newHTML = "<h2><span>"+count+" "+"<span style='color:#54a24b'>" + str +"</span>"+ " reviews" + "</span></h2>";
+        }
+
+        else if(str == "negative"){
+            newHTML = "<h2><span>"+count+" "+"<span style='color:#e45756'>" + str +"</span>"+ " reviews" + "</span></h2>";
+        }
+
+        else{
+            newHTML = "<h2><span>"+count+" "+"<span style='color:#eeca3b'>" + str +"</span>"+ " reviews" + "</span></h2>";
+        }
+        
+    }
+
+    else if(str == "0-25" || str == "25-50" || str == "50-75" || str == "75-100"){
+        newHTML = "Product reviews with "+str+" % vulgarity";
+
+
+        if(str == "0-25"){
+            newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#8cc9cd'>" + str +"%</span>"+" vulgarity"+ "</span></h3>";
+        }
+        else if(str == "25-50"){
+            newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#5fb0c0'>"+ str +"%</span>"+" vulgarity"+ "</span></h3>";
+        }
+        else if(str == "50-75"){
+            newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#3993b0'>"+ str +"%</span>"+" vulgarity"+ "</span></h3>";
+        }
+        else if(str == "75-100"){
+            newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#32759b'>"+ str +"%</span>"+" vulgarity"+ "</span></h3>";
+        }
+
+
+    }
+
+    all_div.innerHTML = newHTML;
+
+}
+
 function populate_comments() {
     var myNode = document.getElementById("product_comment_body_div");
     while (myNode.firstChild) {
@@ -47,14 +95,14 @@ function populate_comments() {
     }
 }
 
-function populate_comments_pie(str) {
+function populate_comments_pie(str,prod) {
     var myNode = document.getElementById("product_comment_body_div");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
 
     console.log("in comments pie");
-    console.log(str);
+    console.log(prod);
 
     reviews = []
     for (var i in data_comments) {
@@ -76,7 +124,9 @@ function populate_comments_pie(str) {
 
             "<div class=\"card-body\"" + "\">" +
             '<div class="comment_card" style="float: left;margin-bottom: 15px; padding-left:2px"><span id="card_id_' + i + '">' +
-            "<i class=" + "card-text" + "></i>" + uniqueProducts[i] + '</span>' + "</div>";
+            "<input type=\"checkbox\"" + "\">" +
+            "<i class=" + "card-text" + "></i>" + "\xa0\xa0" + uniqueProducts[i] + 
+            '</span>' + "</div>";
 
         divCard.innerHTML = divCardHTML;
         var element = document.getElementById("product_comment_body_div");
@@ -84,7 +134,7 @@ function populate_comments_pie(str) {
     }
 }
 
-function populate_comments_bar(str) {
+function populate_comments_bar(str,prod) {
     var myNode = document.getElementById("product_comment_body_div");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
@@ -94,7 +144,7 @@ function populate_comments_bar(str) {
     reviews = []
     for (var i in data_comments) {
 
-        var percent_vulgar = data_comments[i].vulgarity;
+        var percent_vulgar = data_comments[i].vulgarity*100;
 
         if(percent_vulgar >= arr[0] && percent_vulgar <= arr[1]){
             console.log(data_comments[i].vulgarity);
@@ -102,6 +152,9 @@ function populate_comments_bar(str) {
         }
         
     }
+
+    console.log("in bar pie");
+    console.log(prod);
 
     var uniqueProducts = Array.from(new Set(reviews))
 
@@ -112,9 +165,11 @@ function populate_comments_bar(str) {
 
         var divCardHTML =
 
-            "<div class=\"card-body\"" + "\">" +
+           "<div class=\"card-body\"" + "\">" +
             '<div class="comment_card" style="float: left;margin-bottom: 15px; padding-left:2px"><span id="card_id_' + i + '">' +
-            "<i class=" + "card-text" + "></i>" + uniqueProducts[i] + '</span>' + "</div>";
+            "<input type=\"checkbox\"" + "\">" +
+            "<i class=" + "card-text" + "></i>" + "\xa0\xa0" + uniqueProducts[i] + 
+            '</span>' + "</div>";
 
         divCard.innerHTML = divCardHTML;
         var element = document.getElementById("product_comment_body_div");
