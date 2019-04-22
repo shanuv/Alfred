@@ -31,11 +31,18 @@
 
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Alfred</a>
+		<a class="navbar-brand" href="index.html">Alfred</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="compare.html">Compare <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+		</div>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
@@ -87,7 +94,8 @@
 				</div>
 				<div class="modal-body">
 					<!-- <p>Modal body text goes here.</p> -->
-					<p>About goes here</p>
+					<p>This is the course project for the course Advanced Methods in HCI 690A</p>
+					<p>Copyright @ Aditya Narula, Mahmood Jasim and Shanu Vashishtha</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -124,7 +132,7 @@
 			<div class="card-body" style="display:flex; flex-direction:column; align-content: center">
 				<h5 class="card-title">Camera Accessories</h5>
 				<p class="card-text">Browse</p>
-				<button class="btn btn-primary" style="background-color:#FFC107; border-color:#FFC107;color:black" id="camera_card_button">Explore</button>
+				<button class="btn btn-primary" style="background-color:#FFC107; border-color:#FFC107;color:black  " id="camera_card_button" onclick=" window.open('product_view.html','_blank')">Explore</button>
 			</div>
 		</div>
 
@@ -134,7 +142,7 @@
 			<div class="card-body" style="display:flex; flex-direction:column; align-content: center">
 				<h5 class="card-title">Books</h5>
 				<p class="card-text">Browse from 10 books</p>
-				<button class="btn btn-primary" style="background-color:#FFC107; border-color:#FFC107;color:black" id="book_card_button">Explore</button>
+				<button class="btn btn-primary" style="background-color:#969696; border-color:#FFC107;color:black" id="book_card_button">Coming Soon..</button>
 			</div>
 		</div>
 
@@ -144,7 +152,7 @@
 			<div class="card-body" style="display:flex; flex-direction:column; align-content: center">
 				<h5 class="card-title">Tools</h5>
 				<p class="card-text">Browse from 10 tools </p>
-				<button class="btn btn-primary" style="background-color:#FFC107; border-color:#FFC107; color:black" id="tools_card_button">Explore</button>
+				<button class="btn btn-primary" style="background-color:#969696; border-color:#FFC107; color:black " id="tools_card_button">Coming Soon..</button>
 			</div>
 		</div>
 	</div>
@@ -153,4 +161,4 @@
 
 </html>
 
-<script src="home.js"></script>
+<!-- <script src="home.js"></script> -->

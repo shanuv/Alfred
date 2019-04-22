@@ -23,9 +23,10 @@
 
 	<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
 
-	<script type='text/javascript' > 
-	  var product_id_selected = "B00XHRW9TI"; 
+	<script type='text/javascript' >
 	</script>
+
+	<script src="selected.js"></script>
 
 	<link rel="stylesheet" href="product.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -35,7 +36,7 @@
 
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Alfred</a>
+		<a class="navbar-brand" href="index.html">Alfred</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -46,9 +47,90 @@
 				<li class="nav-item active">
 					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="compare.html">Compare <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+				<li><button class="btn btn-primary navbar-btn" id="help_button" type="button" data-toggle="modal"
+						data-placement="bottom" title="Help" data-target="#helpModal"
+						style="background-color:#343A40; border-color: #343A40">Help</button></li>
+				</li>
+				<li><button class="btn btn-primary navbar-btn" id="about_button" type="button" data-toggle="modal"
+						data-placement="bottom" title="About" data-target="#aboutModal"
+						style="background-color:#343A40; border-color: #343A40">About</button></li>
+				</li>
+				<li><button class="btn btn-primary navbar-btn" id="print_button" type="button" data-toggle="modal"
+						data-placement="bottom" title="Print" data-target="#printModal"
+						style="background-color:#343A40; border-color: #343A40; margin-top:5px"><i class="fas fa-print"></i></button></li>
+				</li>
 			</ul>
 		</div>
 	</nav>
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="helpModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Help</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!-- <p>Modal body text goes here.</p> -->
+					<img class="img-fluid" src="https://imgur.com/iFqweuO.png" alt="Help">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="aboutModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">About</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<!-- <p>Modal body text goes here.</p> -->
+					<p>This is the course project for the course Advanced Methods in HCI 690A</p>
+					<p>Copyright @ Aditya Narula, Mahmood Jasim and Shanu Vashishtha</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="printModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Print</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Print text goes here</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" id="print_comments_button" style="background-color:#FFC107; border-color:#FFC107;color:black" data-dismiss="modal">Print</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div id="product_main_div" class="productMainDiv">
 		<div id="product_top_div" class="productTopDiv">
@@ -351,186 +433,266 @@
 						<script>
 
 							var vulgarity_book = {
-								"B00XHRW9TI": [
-									{
-										"bin": "0-25",
-										"number": 8
-									},
-									{
-										"bin": "25-50",
-										"number": 1
-									},
-									{
-										"bin": "50-75",
-										"number": 0
-									},
-									{
-										"bin": "75-100",
-										"number": 1
-									}
-								],
-								"B00G97AJMW": [
-									{
-										"bin": "0-25",
-										"number": 4
-									},
-									{
-										"bin": "25-50",
-										"number": 2
-									},
-									{
-										"bin": "50-75",
-										"number": 2
-									},
-									{
-										"bin": "75-100",
-										"number": 2
-									}
-								],
-								"B005KK41HI": [
-									{
-										"bin": "0-25",
-										"number": 1
-									},
-									{
-										"bin": "25-50",
-										"number": 3
-									},
-									{
-										"bin": "50-75",
-										"number": 4
-									},
-									{
-										"bin": "75-100",
-										"number": 2
-									}
-								],
-								"B0043ZLFXE": [
-									{
-										"bin": "0-25",
-										"number": 2
-									},
-									{
-										"bin": "25-50",
-										"number": 2
-									},
-									{
-										"bin": "50-75",
-										"number": 2
-									},
-									{
-										"bin": "75-100",
-										"number": 4
-									}
-								],
-								"B00FEN6HJ6": [
-									{
-										"bin": "0-25",
-										"number": 4
-									},
-									{
-										"bin": "25-50",
-										"number": 3
-									},
-									{
-										"bin": "50-75",
-										"number": 2
-									},
-									{
-										"bin": "75-100",
-										"number": 1
-									}
-								],
-								"B00GCGGNBQ": [
-									{
-										"bin": "0-25",
-										"number": 3
-									},
-									{
-										"bin": "25-50",
-										"number": 5
-									},
-									{
-										"bin": "50-75",
-										"number": 1
-									},
-									{
-										"bin": "75-100",
-										"number": 1
-									}
-								],
-								"B00DWIAVWY": [
-									{
-										"bin": "0-25",
-										"number": 7
-									},
-									{
-										"bin": "25-50",
-										"number": 2
-									},
-									{
-										"bin": "50-75",
-										"number": 0
-									},
-									{
-										"bin": "75-100",
-										"number": 1
-									}
-								],
-								"B004O3BWF6": [
-									{
-										"bin": "0-25",
-										"number": 5
-									},
-									{
-										"bin": "25-50",
-										"number": 2
-									},
-									{
-										"bin": "50-75",
-										"number": 0
-									},
-									{
-										"bin": "75-100",
-										"number": 3
-									}
-								],
-								"B0053FR9FQ": [
-									{
-										"bin": "0-25",
-										"number": 2
-									},
-									{
-										"bin": "25-50",
-										"number": 2
-									},
-									{
-										"bin": "50-75",
-										"number": 5
-									},
-									{
-										"bin": "75-100",
-										"number": 1
-									}
-								],
-								"B00424MW42": [
-									{
-										"bin": "0-25",
-										"number": 2
-									},
-									{
-										"bin": "25-50",
-										"number": 3
-									},
-									{
-										"bin": "50-75",
-										"number": 3
-									},
-									{
-										"bin": "75-100",
-										"number": 2
-									}
-								]
+							    "B00XHRW9TI": [
+							        {
+							            "bin": "0-25",
+							            "number": 8,
+							            "max": 0.21600477618210565,
+							            "min": 0.00020041337738305586
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 1,
+							            "max": 0.21600477618210565,
+							            "min": 0.00020041337738305586
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 0,
+							            "max": 0.21600477618210565,
+							            "min": 0.00020041337738305586
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 1,
+							            "max": 0.21600477618210565,
+							            "min": 0.00020041337738305586
+							        }
+							    ],
+							    "B00G97AJMW": [
+							        {
+							            "bin": "0-25",
+							            "number": 4,
+							            "max": 0.16338168304758152,
+							            "min": 0.042837154567138526
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 2,
+							            "max": 0.16338168304758152,
+							            "min": 0.042837154567138526
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 2,
+							            "max": 0.16338168304758152,
+							            "min": 0.042837154567138526
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 2,
+							            "max": 0.16338168304758152,
+							            "min": 0.042837154567138526
+							        }
+							    ],
+							    "B005KK41HI": [
+							        {
+							            "bin": "0-25",
+							            "number": 1,
+							            "max": 0.13383646460083393,
+							            "min": 0.0021420558861087744
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 3,
+							            "max": 0.13383646460083393,
+							            "min": 0.0021420558861087744
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 4,
+							            "max": 0.13383646460083393,
+							            "min": 0.0021420558861087744
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 2,
+							            "max": 0.13383646460083393,
+							            "min": 0.0021420558861087744
+							        }
+							    ],
+							    "B0043ZLFXE": [
+							        {
+							            "bin": "0-25",
+							            "number": 2,
+							            "max": 0.12095604436347504,
+							            "min": 0.005281388624217569
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 2,
+							            "max": 0.12095604436347504,
+							            "min": 0.005281388624217569
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 2,
+							            "max": 0.12095604436347504,
+							            "min": 0.005281388624217569
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 4,
+							            "max": 0.12095604436347504,
+							            "min": 0.005281388624217569
+							        }
+							    ],
+							    "B00FEN6HJ6": [
+							        {
+							            "bin": "0-25",
+							            "number": 4,
+							            "max": 0.15128181612305108,
+							            "min": 0.0026269782028198337
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 3,
+							            "max": 0.15128181612305108,
+							            "min": 0.0026269782028198337
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 2,
+							            "max": 0.15128181612305108,
+							            "min": 0.0026269782028198337
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 1,
+							            "max": 0.15128181612305108,
+							            "min": 0.0026269782028198337
+							        }
+							    ],
+							    "B00GCGGNBQ": [
+							        {
+							            "bin": "0-25",
+							            "number": 3,
+							            "max": 0.2073818495974268,
+							            "min": 0.02463767564667453
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 5,
+							            "max": 0.2073818495974268,
+							            "min": 0.02463767564667453
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 1,
+							            "max": 0.2073818495974268,
+							            "min": 0.02463767564667453
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 1,
+							            "max": 0.2073818495974268,
+							            "min": 0.02463767564667453
+							        }
+							    ],
+							    "B00DWIAVWY": [
+							        {
+							            "bin": "0-25",
+							            "number": 7,
+							            "max": 0.3267428592060706,
+							            "min": 0.04739093277635213
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 2,
+							            "max": 0.3267428592060706,
+							            "min": 0.04739093277635213
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 0,
+							            "max": 0.3267428592060706,
+							            "min": 0.04739093277635213
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 1,
+							            "max": 0.3267428592060706,
+							            "min": 0.04739093277635213
+							        }
+							    ],
+							    "B004O3BWF6": [
+							        {
+							            "bin": "0-25",
+							            "number": 5,
+							            "max": 0.09316817285470949,
+							            "min": 0.023309579130340798
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 2,
+							            "max": 0.09316817285470949,
+							            "min": 0.023309579130340798
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 0,
+							            "max": 0.09316817285470949,
+							            "min": 0.023309579130340798
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 3,
+							            "max": 0.09316817285470949,
+							            "min": 0.023309579130340798
+							        }
+							    ],
+							    "B0053FR9FQ": [
+							        {
+							            "bin": "0-25",
+							            "number": 2,
+							            "max": 0.10772089465976034,
+							            "min": 0.011895357377775116
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 2,
+							            "max": 0.10772089465976034,
+							            "min": 0.011895357377775116
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 5,
+							            "max": 0.10772089465976034,
+							            "min": 0.011895357377775116
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 1,
+							            "max": 0.10772089465976034,
+							            "min": 0.011895357377775116
+							        }
+							    ],
+							    "B00424MW42": [
+							        {
+							            "bin": "0-25",
+							            "number": 2,
+							            "max": 0.16036873129468102,
+							            "min": 0.028619121038757005
+							        },
+							        {
+							            "bin": "25-50",
+							            "number": 3,
+							            "max": 0.16036873129468102,
+							            "min": 0.028619121038757005
+							        },
+							        {
+							            "bin": "50-75",
+							            "number": 3,
+							            "max": 0.16036873129468102,
+							            "min": 0.028619121038757005
+							        },
+							        {
+							            "bin": "75-100",
+							            "number": 2,
+							            "max": 0.16036873129468102,
+							            "min": 0.028619121038757005
+							        }
+							    ]
 							}
 
 						var margin = { top: 20, right: 30, bottom: 30, left: 40 },
@@ -596,7 +758,7 @@
 								.on("click", function (d, i) {
 									console.log("bar clicked" + d.bin);
 									d3.select(this).style("fill", "#000000");
-									populate_comments_bar(d.bin,product_id_selected);
+									populate_comments_bar(d.bin,product_id_selected,d.min,d.max);
 									which_comments(d.bin,d.number)
 								});
 

@@ -28,9 +28,19 @@ d3.json("alfred_data_camera_newkeywords.json", function (err, json) {
 
 // top dropdown mechanisms
 $('#select-top-all').change(function () {
-    //var selectedText = $(this).find("option:selected").text();
-    var selectedText = product_id_selected
-    var all_comments = get_all_comments(selectedText);
+    var selectedText = $(this).find("option:selected").text();
+    console.log(selectedText);
+    var selectedid;
+    for (var i in data){
+        if(data[i].product_name == selectedText){
+            selectedid = data[i].product_id;
+            break;
+        }
+    }
+
+    console.log(selectedid);
+    //var selectedText = product_id_selected
+    var all_comments = get_all_comments(selectedid);
     draw_all_comments(all_comments)
 });
 

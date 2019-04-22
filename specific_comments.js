@@ -46,7 +46,7 @@ function which_comments(str,count){
 
     else{
         console.log("in which comments");
-        newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#FFC107'>" + str +"</span>"+" or higher rating"+ "</span></h3>";
+        newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#FFC107'>" + str +"</span>"+" star rating"+ "</span></h3>";
     }
 
     all_div.innerHTML = newHTML;
@@ -66,7 +66,7 @@ function populate_comments_star(rating,prod){
     reviews = []
     for (var i in data_comments) {
         //console.log(data_comments[i].star_rating);
-        if(data_comments[i].product_id == prod && rating <= data_comments[i].star_rating){
+        if(data_comments[i].product_id == prod && rating === data_comments[i].star_rating){
             console.log("starred comments: "+data_comments[i].star_rating);
             reviews.push(data_comments[i].review_body);
         }
@@ -180,7 +180,7 @@ function populate_comments_pie(str,prod) {
     }
 }
 
-function populate_comments_bar(str,prod) {
+function populate_comments_bar(str,prod,minb,maxb) {
     var myNode = document.getElementById("product_comment_body_div");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
@@ -190,7 +190,7 @@ function populate_comments_bar(str,prod) {
     reviews = []
     for (var i in data_comments) {
 
-        var percent_vulgar = data_comments[i].vulgarity*100;
+        var percent_vulgar = ((data_comments[i].vulgarity-minb)/(maxb-minb))*100;
 
         if(data_comments[i].product_id == prod && percent_vulgar >= arr[0] && percent_vulgar <= arr[1]){
             console.log(percent_vulgar);
