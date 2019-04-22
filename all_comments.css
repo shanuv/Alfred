@@ -8,6 +8,59 @@ body {
     font-family: BentonSans, 'Open Sans', sans-serif;
 }
 
+.allMainDiv{
+    height: 95%;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.allParentDiv{
+    display: flex;
+    flex-direction: row;
+    height: 93%;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.allCommentDiv{
+    color:#333;
+    margin-left: 40px;
+    margin-right: 30px;
+    font-family: Open Sans,sans-serif;
+
+    Background: #fff;
+    padding: 5px;
+    display: block; overflow: hidden;
+    border-top:2px solid white;
+    border-bottom: 1px solid #e2e2e2;
+
+}
+
+.allTopDiv{
+    display:flex;
+    height: 7%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+}s
+
+.allLeftDiv{
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.allLeftBodyDiv{
+    align-items: center;
+    /* background-color: blue; */
+    overflow: scroll;
+    height:100%
+}
+
 .compareMainDiv{
     height: 95%;
     width: 100%;
