@@ -7,6 +7,7 @@ function which_comments(str,count){
     var all_div = document.getElementById("product_comment_dd_div");
     var newHTML;
 
+    console.log(str + " "+ count);
     //if pie
     if(str == "positive" || str == "negative" || str == "neutral"){
         console.log("inside which comments");
@@ -26,7 +27,6 @@ function which_comments(str,count){
     }
 
     else if(str == "0-25" || str == "25-50" || str == "50-75" || str == "75-100"){
-        newHTML = "Product reviews with "+str+" % vulgarity";
 
 
         if(str == "0-25"){
@@ -42,10 +42,56 @@ function which_comments(str,count){
             newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#32759b'>"+ str +"%</span>"+" vulgarity"+ "</span></h3>";
         }
 
+    }
 
+    else{
+        console.log("in which comments");
+        newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#FFC107'>" + str +"</span>"+" or higher rating"+ "</span></h3>";
     }
 
     all_div.innerHTML = newHTML;
+
+}
+
+function populate_comments_star(rating,prod){
+
+    var myNode = document.getElementById("product_comment_body_div");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
+
+    console.log("in comments star");
+    //console.log(rating);
+
+    reviews = []
+    for (var i in data_comments) {
+        //console.log(data_comments[i].star_rating);
+        if(data_comments[i].product_id == prod && rating <= data_comments[i].star_rating){
+            console.log("starred comments: "+data_comments[i].star_rating);
+            reviews.push(data_comments[i].review_body);
+        }
+        
+    }
+
+    var uniqueProducts = Array.from(new Set(reviews))
+
+    for (var i in uniqueProducts) {
+        var divComCard = document.createElement("div")
+        divComCard.className = "comcardDiv"
+        divComCard.id = "comcardDiv_" + i
+
+        var divComCardHTML =
+
+            "<div class=\"card-body\"" + "\">" +
+            '<div class="comment_card" style="float: left;margin-bottom: 15px; padding-left:2px"><span id="card_id_' + i + '">' +
+            "<input type=\"checkbox\"" + "\">" +
+            "<i class=" + "card-text" + "></i>" + "\xa0\xa0" + uniqueProducts[i] + 
+            '</span>' + "</div>";
+
+        divComCard.innerHTML = divComCardHTML;
+        var element = document.getElementById("product_comment_body_div");
+        element.appendChild(divComCard);
+    }
 
 }
 
@@ -106,7 +152,7 @@ function populate_comments_pie(str,prod) {
 
     reviews = []
     for (var i in data_comments) {
-        if(str === data_comments[i].sentiment){
+        if(data_comments[i].product_id == prod && str === data_comments[i].sentiment){
             console.log(data_comments[i].sentiment);
             reviews.push(data_comments[i].review_body);
         }
@@ -116,11 +162,11 @@ function populate_comments_pie(str,prod) {
     var uniqueProducts = Array.from(new Set(reviews))
 
     for (var i in uniqueProducts) {
-        var divCard = document.createElement("div")
-        divCard.className = "cardDiv"
-        divCard.id = "cardDiv_" + i
+        var divComCard = document.createElement("div")
+        divComCard.className = "comcardDiv"
+        divComCard.id = "comcardDiv_" + i
 
-        var divCardHTML =
+        var divComCardHTML =
 
             "<div class=\"card-body\"" + "\">" +
             '<div class="comment_card" style="float: left;margin-bottom: 15px; padding-left:2px"><span id="card_id_' + i + '">' +
@@ -128,9 +174,9 @@ function populate_comments_pie(str,prod) {
             "<i class=" + "card-text" + "></i>" + "\xa0\xa0" + uniqueProducts[i] + 
             '</span>' + "</div>";
 
-        divCard.innerHTML = divCardHTML;
+        divComCard.innerHTML = divComCardHTML;
         var element = document.getElementById("product_comment_body_div");
-        element.appendChild(divCard);
+        element.appendChild(divComCard);
     }
 }
 
@@ -146,24 +192,24 @@ function populate_comments_bar(str,prod) {
 
         var percent_vulgar = data_comments[i].vulgarity*100;
 
-        if(percent_vulgar >= arr[0] && percent_vulgar <= arr[1]){
-            console.log(data_comments[i].vulgarity);
+        if(data_comments[i].product_id == prod && percent_vulgar >= arr[0] && percent_vulgar <= arr[1]){
+            console.log(percent_vulgar);
             reviews.push(data_comments[i].review_body);
         }
         
     }
 
-    console.log("in bar pie");
+    console.log("in bar comments");
     console.log(prod);
 
     var uniqueProducts = Array.from(new Set(reviews))
 
     for (var i in uniqueProducts) {
-        var divCard = document.createElement("div")
-        divCard.className = "cardDiv"
-        divCard.id = "cardDiv_" + i
+        var divComCard = document.createElement("div")
+        divComCard.className = "comcardDiv"
+        divComCard.id = "comcardDiv_" + i
 
-        var divCardHTML =
+        var divComCardHTML =
 
            "<div class=\"card-body\"" + "\">" +
             '<div class="comment_card" style="float: left;margin-bottom: 15px; padding-left:2px"><span id="card_id_' + i + '">' +
@@ -171,9 +217,9 @@ function populate_comments_bar(str,prod) {
             "<i class=" + "card-text" + "></i>" + "\xa0\xa0" + uniqueProducts[i] + 
             '</span>' + "</div>";
 
-        divCard.innerHTML = divCardHTML;
+        divComCard.innerHTML = divComCardHTML;
         var element = document.getElementById("product_comment_body_div");
-        element.appendChild(divCard);
+        element.appendChild(divComCard);
     }
 }
 

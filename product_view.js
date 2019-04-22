@@ -50,12 +50,17 @@ function populate_product_cards() {
         //var pc = document.getElementById("product_left_body_div");
 
         divCard.onclick = function(){
+            document.getElementById("product_comment_body_div").innerHTML = "";
+            document.getElementById("product_comment_dd_div").innerHTML = "";
             var card_clicked = null;
             card_clicked = document.getElementById(this.id);
             console.log(card_clicked.textContent);
             product_select = card_clicked.textContent;
             find_product_id(product_select);
             //card_clicked = null;
+
+            //fill stars
+            populate_stars(product_id_selected);
         }
         element.appendChild(divCard);
     }
@@ -63,11 +68,11 @@ function populate_product_cards() {
 
 //make star ratings
 
-function populate_stars(product_name) {
+function populate_stars(prod_id) {
     var rating = 0;
     var count = 0;
     for (var i in data_main) {
-        if (data_main[i].product_name == product_name) {
+        if (data_main[i].product_id == prod_id) {
             rating += data_main[i].star_rating
             count += 1
         }
@@ -95,6 +100,14 @@ function populate_stars(product_name) {
     }
 
     myNode.innerHTML = divStarHTML;
+
+
+    //on clicking the stars
+    myNode.onclick = function(){
+            console.log("star ratings clicked");
+            populate_comments_star(rating,prod_id);
+            which_comments(rating,count);
+        }
 }
 
 // read data and call initiator
@@ -103,5 +116,5 @@ d3.json("alfred_data_camera.json", function (err, json) {
     //  console.log(data)
     populate_product_cards();
     product_name = "(3 Pack of Polaroid 300 Film PIF-300) 30 Prints"
-    populate_stars(product_name);
+    populate_stars(product_id_selected);
 })
