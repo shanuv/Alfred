@@ -9,7 +9,7 @@ function populate_dropdown() {
     }
 
     var uniqueProducts = Array.from(new Set(product_names))
-    
+
     for (var i = 0; i < uniqueProducts.length; i++) {
         $("#select-top-all").append('<option value="' + i + '">' + uniqueProducts[i] + '</option>');
     }

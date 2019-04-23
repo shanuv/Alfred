@@ -15,13 +15,12 @@ body {
     align-items: center;
 }
 
-.productTopDiv{
+/* .productTopDiv{
     height: 10%;
     width: 100%;
     justify-content: center;
     align-items: center;
-    /* background-color: yellow; */
-}
+} */
 
 .productDDDiv{
     height:50px;
@@ -35,7 +34,7 @@ body {
 .productParentDiv{
     display: flex;
     flex-direction: row;
-    height: 80%;
+    height: 90%;
     width: 100%;
     justify-content: start;
     align-items: center;
@@ -50,14 +49,14 @@ body {
 
 .productRightDiv{
     height: 100%;
-    width: 25%;
+    width: 30%;
     align-items: center;
     /*background-color: green;*/
 }
 
 .productCommentDiv{
     height: 100%;
-    width: 50%;
+    width: 45%;
     align-items: center;
     /*background-color: green;*/
 }
@@ -80,6 +79,16 @@ body {
     height:100%;
 }
 
+.allTriggerDiv{
+    display:flex;
+    flex-direction: row;
+    height: 10%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
 .pieBodyDiv{
     display:flex;
     flex-direction: row;
@@ -93,7 +102,7 @@ body {
 .barBodyDiv{
     display:flex;
     flex-direction: row;
-    height: 40%;
+    height: 35%;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -103,7 +112,7 @@ body {
 .starBodyDiv{
     display:flex;
     flex-direction: row;
-    height: 20%;
+    height: 15%;
     width: 100%;
     justify-content: center;
     align-items: center;

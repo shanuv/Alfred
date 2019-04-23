@@ -5,6 +5,9 @@ function populate_dropdown() {
     criteria = get_comparison_criteria(data);
     //criteria = ["A", "B", "C", "D", "E",];
     for (var i = 0; i < criteria.length; i++) {
+
+        criteria[i] = criteria[i].charAt(0).toUpperCase() + criteria[i].slice(1);
+
         $("#select-top").append('<option value="' + i + '">' + criteria[i] + '</option>');
     }
     $("#select-top").append('<option value="' + i + '">' + "All" + '</option>');
@@ -44,7 +47,7 @@ $('#select-top').change(function () {
 // left dropdown mechanisms
 $('#select-left').change(function () {
     var selectedText = $(this).find("option:selected").text();
-    var compare_comments = get_comments(selectedText);
+    var compare_comments = get_comments(selectedText.toLowerCase);
     draw_comments("left", compare_comments)
 });
 
@@ -63,7 +66,8 @@ function draw_comments(dropbar, compare_comments) {
         myNode.removeChild(myNode.firstChild);
     }
 
-    var selectedText = $("#select-top").find("option:selected").text();
+    var selectedText = $("#select-top").find("option:selected").text().toLowerCase();
+    console.log("this one", selectedText)
 
     for (var i in compare_comments) {
         divComment = document.createElement("div")
@@ -78,7 +82,7 @@ function draw_comments(dropbar, compare_comments) {
             sent = "\"fas fa-arrow-alt-circle-up fa-lg\"";
         else
             sent = "\"fas fa-arrow-alt-circle-right fa-lg\"";
-        if (selectedText == "" || selectedText == "All" || compare_comments[i].keywords.includes(selectedText)) {
+        if (selectedText == "" || selectedText == "all" || compare_comments[i].keywords.includes(selectedText)) {
 
             // var divCommentHTML =
 
