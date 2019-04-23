@@ -153,3 +153,7 @@ body {
 .star_agg_icon:hover{
     cursor: pointer;
 }
+
+#pieChart:hover{
+    cursor:pointer;
+}

@@ -47,7 +47,7 @@ $('#select-top').change(function () {
 // left dropdown mechanisms
 $('#select-left').change(function () {
     var selectedText = $(this).find("option:selected").text();
-    var compare_comments = get_comments(selectedText.toLowerCase);
+    var compare_comments = get_comments(selectedText);
     draw_comments("left", compare_comments)
 });
 

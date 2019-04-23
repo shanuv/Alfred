@@ -1,0 +1,11 @@
+#camera_card_button{
+    background-color:#FFC107;
+    border-color:#FFC107;
+    color:black;
+}
+
+#camera_card_button:hover{
+    background-color:#FFC107;
+    border-color:black;
+    border-radius:5px;
+}
