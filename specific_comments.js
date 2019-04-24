@@ -1,6 +1,7 @@
 var data_comments = null;
 // var card_clicked = null
 // make cards
+//var x = 10;
 
 function which_comments(str,count){
 
@@ -13,15 +14,15 @@ function which_comments(str,count){
         console.log("inside which comments");
 
         if(str == "positive"){
-            newHTML = "<h2><span>"+count+" "+"<span style='color:#54a24b'>" + str +"</span>"+ " reviews" + "</span></h2>";
+            newHTML = "<h5><span>"+count+" "+"<span style='color:#54a24b'>" + str +"</span>"+ " reviews" + "</span></h5>";
         }
 
         else if(str == "negative"){
-            newHTML = "<h2><span>"+count+" "+"<span style='color:#e45756'>" + str +"</span>"+ " reviews" + "</span></h2>";
+            newHTML = "<h5><span>"+count+" "+"<span style='color:#e45756'>" + str +"</span>"+ " reviews" + "</span></h5>";
         }
 
         else{
-            newHTML = "<h2><span>"+count+" "+"<span style='color:#eeca3b'>" + str +"</span>"+ " reviews" + "</span></h2>";
+            newHTML = "<h5><span>"+count+" "+"<span style='color:#eeca3b'>" + str +"</span>"+ " reviews" + "</span></h5>";
         }
         
     }
@@ -30,23 +31,23 @@ function which_comments(str,count){
 
 
         if(str == "0-25"){
-            newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#8cc9cd'>" + str +"%</span>"+" vulgarity"+ "</span></h3>";
+            newHTML = "<h5><span>"+count+" " +"reviews with "+"<span style='color:#8cc9cd'>" + str +"%</span>"+" vulgarity"+ "</span></h5>";
         }
         else if(str == "25-50"){
-            newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#5fb0c0'>"+ str +"%</span>"+" vulgarity"+ "</span></h3>";
+            newHTML = "<h5><span>"+count+" " +"reviews with "+"<span style='color:#5fb0c0'>"+ str +"%</span>"+" vulgarity"+ "</span></h5>";
         }
         else if(str == "50-75"){
-            newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#3993b0'>"+ str +"%</span>"+" vulgarity"+ "</span></h3>";
+            newHTML = "<h5><span>"+count+" " +"reviews with "+"<span style='color:#3993b0'>"+ str +"%</span>"+" vulgarity"+ "</span></h5>";
         }
         else if(str == "75-100"){
-            newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#32759b'>"+ str +"%</span>"+" vulgarity"+ "</span></h3>";
+            newHTML = "<h5><span>"+count+" " +"reviews with "+"<span style='color:#32759b'>"+ str +"%</span>"+" vulgarity"+ "</span></h5>";
         }
 
     }
 
     else{
         console.log("in which comments");
-        newHTML = "<h3><span>"+count+" " +"reviews with "+"<span style='color:#FFC107'>" + str +"</span>"+" star rating"+ "</span></h3>";
+        newHTML = "<h5><span>"+count+" " +"reviews with "+"<span style='color:#FFC107'>" + str +"</span>"+" star rating"+ "</span></h5>";
     }
 
     all_div.innerHTML = newHTML;
@@ -226,6 +227,6 @@ function populate_comments_bar(str,prod,minb,maxb) {
 // read data_comments and call initiator
 d3.json("alfred_data_camera.json", function (err, json) {
     data_comments = JSON.parse(JSON.stringify(json))
-    populate_comments();
+    //populate_comments();
     //product_name = "(3 Pack of Polaroid 300 Film PIF-300) 30 Prints"
 })

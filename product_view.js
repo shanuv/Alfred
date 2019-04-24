@@ -7,6 +7,11 @@ function find_product_id(product_name){
         //console.log(data_main[i]);
         if(data_main[i].product_name !== null && data_main[i].product_name.localeCompare(product_name) === 0){
             product_id_selected = data_main[i].product_id
+            localStorage.setItem("ps", product_id_selected); 
+
+            p_selected = localStorage.getItem("ps");
+
+            console.log("prod from product view: "+p_selected);
             console.log(product_id_selected);
             break;
         }

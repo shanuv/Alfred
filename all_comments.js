@@ -1,11 +1,21 @@
 var data = null;
-
+var p_selected;
+//console.log(x);
 // populate all dropdowns
 function populate_dropdown() {
 
     product_names = []
     for (var i in data) {
-        product_names.push(data[i].product_name)
+        if(data[i].product_id == p_selected){
+            product_names.push(data[i].product_name);
+            break;
+        } 
+    }
+
+    for (var i in data) {
+        if(data[i].product_id != p_selected){
+            product_names.push(data[i].product_name);
+        } 
     }
 
     var uniqueProducts = Array.from(new Set(product_names))
@@ -18,9 +28,13 @@ function populate_dropdown() {
 // read data and call initiator
 d3.json("alfred_data_camera_newkeywords.json", function (err, json) {
     data = JSON.parse(JSON.stringify(json))
-    //console.log(data)
+    p_selected = localStorage.getItem("ps");
+
+    console.log("prod from product view: "+p_selected);
+
     populate_dropdown();
-    var selectedText = product_id_selected
+    var selectedText = p_selected;
+
     var all_comments = get_all_comments(selectedText);
     console.log(all_comments)
     draw_all_comments(all_comments)
