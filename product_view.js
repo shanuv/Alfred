@@ -95,17 +95,18 @@ function populate_stars(prod_id) {
         "<div class=\"star-body\"" + "\">";
 
     for (var i = 0; i < rating; i++) {
+        x = i + 1
         divStarHTML += '<span class="star_agg_icon" id="span_id_star_agg_' + i + '" >';
-        divStarHTML += "<i class=\"fas fa-star fa-3x\"" + "style=\"color:#FFC107\"" + "></i>" + "\xa0\xa0" + '</span>';
+        divStarHTML += "<i class=\"fas fa-star fa-3x\"" + "style=\"color:#FFC107\"" + "data-toggle=\"tooltip\"" + "title=" + x + "></i>" + "\xa0\xa0" + '</span>';
     }
 
     for (var j = 0; j < 5 - rating; j++) {
+        x = i + 1
         divStarHTML += '<span class="star_agg_icon" id="span_id_star_agg_' + i + '" >';
-        divStarHTML += "<i class=\"far fa-star fa-3x\"" + "></i>" + "\xa0\xa0" + '</span>';
+        divStarHTML += "<i class=\"far fa-star fa-3x\"" + "data-toggle=\"tooltip\"" + "title=" + x + "></i>" + "\xa0\xa0" + '</span>';
     }
 
     myNode.innerHTML = divStarHTML;
-
 
     //on clicking the stars
     myNode.onclick = function(){
