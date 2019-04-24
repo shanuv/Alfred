@@ -736,6 +736,27 @@
 									.attr("height", height + margin.top + margin.bottom)
 									.attr("class", "chart");
 
+
+								svg.append("text")             
+							      .attr("transform",
+							            "translate(" + ((width/2)+5) + " ," + 
+							                           (height + margin.top + 15) + ")")
+							      .style("text-anchor", "middle")
+							      .attr("dy", "1em")
+							      .style("font-size",12)
+							      .style("font-weight","bold")
+							      .text("% Vulgar Bins");
+
+								svg.append("text")
+								      .attr("transform", "rotate(-90)")
+								      .attr("y", 0 - margin.left + 60)
+								      .attr("x",0 - (height / 2))
+								      // .attr("dy", "1em")
+								      .style("text-anchor", "middle")
+								      .style("font-weight","bold")
+								      .style("font-size",12)
+								      .text("Number of Reviews");
+
 								var chart = svg.append("g")
 									.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
