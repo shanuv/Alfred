@@ -76,6 +76,7 @@ function populate_product_cards() {
 function populate_stars(prod_id) {
     var rating = 0;
     var count = 0;
+    var cstars = 0;
     for (var i in data_main) {
         if (data_main[i].product_id == prod_id) {
             rating += data_main[i].star_rating
@@ -84,6 +85,14 @@ function populate_stars(prod_id) {
     }
 
     rating = Math.round(rating / count)
+
+    for (var i in data_main) {
+        if (data_main[i].product_id == prod_id) {
+            if(data_main[i].star_rating == rating){
+                cstars += 1;
+            }
+        }
+    }
 
     var myNode = document.getElementById("star_body");
     while (myNode.firstChild) {
@@ -112,7 +121,7 @@ function populate_stars(prod_id) {
     myNode.onclick = function(){
             console.log("star ratings clicked");
             populate_comments_star(rating,prod_id);
-            which_comments(rating,count);
+            which_comments(rating,cstars);
         }
 }
 
