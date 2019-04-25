@@ -23,6 +23,21 @@ function find_product_id(product_name){
     make_pie(product_id_selected);
 }
 
+function show_names(product_name){
+    var arr = product_name.split(" ");
+    var s = ""
+    for(var i in arr){
+        s += arr[i]
+        s += " "
+
+        if(i > 5) break;
+    }
+
+    var name = document.getElementById("product_right_dd_div");
+    var newHTML = "<h9s><span>"+s+" " + "</span></h9>";
+    name.innerHTML = newHTML;
+}
+
 // make cards
 function populate_product_cards() {
     var myNode = document.getElementById("product_left_body_div");
@@ -66,6 +81,7 @@ function populate_product_cards() {
 
             //fill stars
             populate_stars(product_id_selected);
+            show_names(product_select);
         }
         element.appendChild(divCard);
     }
